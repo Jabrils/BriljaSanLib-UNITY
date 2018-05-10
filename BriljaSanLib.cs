@@ -210,6 +210,38 @@ namespace BriljaSanLib
 
             return newI;
         }
+
+        /// <summary>
+        /// Use this function to save a photo with a capture name
+        /// </summary>
+        /// <param name="capName"></param>
+        public static void ScreenCap(string capName)
+        {
+            string saveFolder = Path.Combine(Application.dataPath, "Screencaps");
+
+            if (!Directory.Exists(saveFolder))
+            {
+                Directory.CreateDirectory(saveFolder);
+            }
+
+            //
+            ScreenCapture.CaptureScreenshot(saveFolder + $"/{capName}_{AddTimeStamp("")}.png");
+        }
+
+        /// <summary>
+        /// Use this function to save a photo with a capture name, & a location
+        /// </summary>
+        /// <param name="capName"></param>
+        public static void ScreenCap(string capName, string location)
+        {
+            if (!Directory.Exists(location))
+            {
+                Directory.CreateDirectory(location);
+            }
+
+            //
+            ScreenCapture.CaptureScreenshot(location + $"/{capName}_{AddTimeStamp("")}.png");
+        }
     }
 
     public class Enable
