@@ -1,6 +1,6 @@
 ﻿// This library is called the Brilja-san Library, completely written by Jabril Ashe.
 // The whole objective of this library is to help speed up workflows by creating frequently used functions.
-// This is version 0.1.1
+// This is version 0.1.2
 
 using System.Collections;
 using System.Collections.Generic;
@@ -246,6 +246,18 @@ namespace BriljaSanLib
 
     public class Enable
     {
+        /// <summary>
+        /// Exits the game
+        /// </summary>
+        /// <param name="key"></param>
+        public static void ExitGame()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+        }
+
         /// <summary>
         /// Exits the game
         /// </summary>
