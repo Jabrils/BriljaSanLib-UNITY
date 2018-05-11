@@ -111,6 +111,20 @@ namespace BriljaSanLib
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
+        public static string AddTimeStamp()
+        {
+            string comb = "_" + System.DateTime.Now;
+            comb = comb.Replace('/', '-');
+            comb = comb.Replace(':', '-');
+            comb = comb.Replace(' ', '_');
+            return comb;
+        }
+
+        /// <summary>
+        /// This will return a time stamp to your string input
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public static string AddTimeStamp(string n)
         {
             string comb = n + "_" + System.DateTime.Now;
@@ -276,6 +290,44 @@ namespace BriljaSanLib
         public static void Rotate(Transform trans, float roSpeed, float axisX, float axisY, float axisZ)
         {
             trans.Rotate(new Vector3(roSpeed * axisX, roSpeed * axisY, roSpeed * axisZ));
+        }
+
+        /// <summary>
+        /// For arrays
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="delimiter"></param>
+        /// <returns></returns>
+        public static string MergeString(string[] array, char delimiter)
+        {
+            string ret = "";
+
+            // 
+            for (int i = 0; i < array.Length; i++)
+            {
+                ret += array[i] + ((i < array.Length - 1) ? delimiter.ToString() : "");
+            }
+
+            return ret;
+        }
+
+        /// <summary>
+        /// For lists
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="delimiter"></param>
+        /// <returns></returns>
+        public static string MergeString(List<string> list, char delimiter)
+        {
+            string ret = "";
+
+            // 
+            for (int i = 0; i < list.Count; i++)
+            {
+                ret += list[i] + ((i < list.Count - 1) ? delimiter.ToString() : "");
+            }
+
+            return ret;
         }
     }
 
