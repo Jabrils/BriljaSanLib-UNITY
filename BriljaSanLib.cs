@@ -1,6 +1,6 @@
 ﻿// This library is called the Brilja-san Library, completely written by Jabril Ashe.
 // The whole objective of this library is to help speed up workflows by creating frequently used functions.
-// This is version 0.1.2
+// This is version 0.1.3
 
 using System.Collections;
 using System.Collections.Generic;
@@ -100,6 +100,30 @@ namespace BriljaSanLib
             }
             // Return char and concat substring.
             return char.ToUpper(s[0]) + s.Substring(1);
+        }
+
+
+        /// <summary>
+        /// This finds whatever object within <paramref name="within"/> to find the class T on your <paramref name="find"/>  
+        /// </summary>
+        /// <returns></returns>
+        public static T FindWithinOn<T>(string find, GameObject within) where T : class
+        {
+            T ret = null;
+
+            T[] all = within.GetComponentsInChildren<T>();
+
+            // 
+            for (int i = 0; i < all.Length; i++)
+            {
+                // 
+                if (all[i].ToString().Contains(find))
+                {
+                    ret = all[i];
+                }
+            }
+
+            return ret;
         }
     }
 
