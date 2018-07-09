@@ -490,38 +490,32 @@ namespace BriljaSanLib
         }
     }
 
+    // 
     public struct Capacity
     {
         public float min;
         public float max;
         public float target;
 
-        public Capacity(float x, float y)
+        public Capacity(float MIN, float MAX)
         {
-            min = x;
-            max = y;
-            target = y;
+            min = MIN;
+            max = MAX;
+            target = MAX;
         }
 
-        public Capacity(float y)
+        public Capacity(float MAX)
         {
             min = 0;
-            max = y;
-            target = y;
+            max = MAX;
+            target = MAX;
         }
 
-        public Capacity(float x, float y, float z)
+        public Capacity(float MIN, float MAX, float TARGET)
         {
-            min = x;
-            max = y;
-            target = z;
-        }
-
-        public Capacity(float y, float z)
-        {
-            min = 0;
-            max = y;
-            target = z;
+            min = MIN;
+            max = MAX;
+            target = TARGET;
         }
     }
 }
